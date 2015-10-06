@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TKDManagerModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="ISO8601" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Belt">
+          <Key>
+            <PropertyRef Name="BeltID" />
+          </Key>
+          <Property Name="BeltID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BeltDescription" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BeltKeup" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="BillID" />
+          </Key>
+          <Property Name="BillID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+          <Property Name="DueDate" Type="datetime" Nullable="false" />
+          <Property Name="PaidDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="ClubName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="FeeID" />
+          </Key>
+          <Property Name="FeeID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeeAmount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="1000" />
+          <Property Name="Address2" Type="varchar" MaxLength="1000" />
+          <Property Name="NPA" Type="varchar" MaxLength="10" />
+          <Property Name="Town" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="HomePhoneNb" Type="varchar" MaxLength="50" />
+          <Property Name="WorkPhoneNb" Type="varchar" MaxLength="50" />
+          <Property Name="MobilePhoneNb" Type="varchar" MaxLength="50" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="BeltID" Type="int" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="FeeID" Type="int" Nullable="false" />
+          <Property Name="ResponsiblePerson" Type="varchar" MaxLength="100" />
+          <Property Name="AnnualLicensePaidUntil" Type="int" />
+        </EntityType>
+        <EntityContainer Name="TKDManagerModelStoreContainer">
+          <EntitySet Name="Belt" EntityType="Self.Belt" store:Type="Tables" />
+          <EntitySet Name="Bill" EntityType="Self.Bill" store:Type="Tables" />
+          <EntitySet Name="Club" EntityType="Self.Club" store:Type="Tables" />
+          <EntitySet Name="Fee" EntityType="Self.Fee" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TKDManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Belt">
+          <Key>
+            <PropertyRef Name="BeltID" />
+          </Key>
+          <Property Name="BeltID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BeltDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BeltKeup" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="BillID" />
+          </Key>
+          <Property Name="BillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" />
+          <Property Name="PaidDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="ClubName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="FeeID" />
+          </Key>
+          <Property Name="FeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeeAmount" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="NPA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Town" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HomePhoneNb" Type="String" />
+          <Property Name="WorkPhoneNb" Type="String" />
+          <Property Name="MobilePhoneNb" Type="String" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="BeltID" Type="Int32" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="FeeID" Type="Int32" Nullable="false" />
+          <Property Name="ResponsiblePerson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AnnualLicensePaidUntil" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="TKDManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Belt" EntityType="Self.Belt" />
+          <EntitySet Name="Bill" EntityType="Self.Bill" />
+          <EntitySet Name="Club" EntityType="Self.Club" />
+          <EntitySet Name="Fee" EntityType="Self.Fee" />
+          <EntitySet Name="Member" EntityType="Self.Member" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TKDManagerModelStoreContainer" CdmEntityContainer="TKDManagerEntities">
+          <EntitySetMapping Name="Belt">
+            <EntityTypeMapping TypeName="TKDManagerModel.Belt">
+              <MappingFragment StoreEntitySet="Belt">
+                <ScalarProperty Name="BeltKeup" ColumnName="BeltKeup" />
+                <ScalarProperty Name="BeltID" ColumnName="BeltID" />
+                <ScalarProperty Name="BeltDescription" ColumnName="BeltDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bill">
+            <EntityTypeMapping TypeName="TKDManagerModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="BillID" ColumnName="BillID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Club">
+            <EntityTypeMapping TypeName="TKDManagerModel.Club">
+              <MappingFragment StoreEntitySet="Club">
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="ClubName" ColumnName="ClubName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fee">
+            <EntityTypeMapping TypeName="TKDManagerModel.Fee">
+              <MappingFragment StoreEntitySet="Fee">
+                <ScalarProperty Name="FeeID" ColumnName="FeeID" />
+                <ScalarProperty Name="FeeAmount" ColumnName="FeeAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="TKDManagerModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="AnnualLicensePaidUntil" ColumnName="AnnualLicensePaidUntil" />
+                <ScalarProperty Name="ResponsiblePerson" ColumnName="ResponsiblePerson" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="NPA" ColumnName="NPA" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="HomePhoneNb" ColumnName="HomePhoneNb" />
+                <ScalarProperty Name="WorkPhoneNb" ColumnName="WorkPhoneNb" />
+                <ScalarProperty Name="MobilePhoneNb" ColumnName="MobilePhoneNb" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="BeltID" ColumnName="BeltID" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="FeeID" ColumnName="FeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
